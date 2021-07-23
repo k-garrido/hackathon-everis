@@ -26,6 +26,16 @@ const MyBookings = () => {
     bringData();
   }, []);
 
+  const deleteBooking  = async (id) => {
+    try {
+      await db.collection('bookings').doc(id).delete()
+      const filteredArray = bookings.filter (item => item.id !== id)
+      setBookings(filteredArray)
+    } catch (error){
+      console.log(error);
+    }
+  }
+
   return (
     <React.Fragment>
       <div className="cuerpo">
@@ -45,7 +55,7 @@ const MyBookings = () => {
                 <td>{item.timeblock}</td>
                 <td>{item.quantity}</td>
                 <td>{item.area.area}</td>
-                <td><img className="delete" src={Delete} alt="delete"></img></td>
+                <td><img className="delete" src={Delete} alt="delete" onClick={() => deleteBooking(item.id)}></img></td>
               </tr>
             ))}
           </table>
