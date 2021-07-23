@@ -27,7 +27,7 @@ const MyBookings = () => {
 
   return (
     <React.Fragment>
-      <body className="cuerpo">
+      <div className="cuerpo">
         <div className="reservas">
           <h1 className="misReservas">Tus reservas:</h1>
           <table className="tabla" border="1px">
@@ -39,7 +39,7 @@ const MyBookings = () => {
               <th>Cancelar</th>
             </tr>
             {filterByName.map((item) => (
-              <tr>
+              <tr key = {item.id}>
                 <td> {item.date}</td>
                 <td>{item.timeblock}</td>
                 <td>{item.quantity}</td>
@@ -49,7 +49,7 @@ const MyBookings = () => {
             ))}
           </table>
         </div>
-      </body>
+      </div>
     </React.Fragment>
   );
 };

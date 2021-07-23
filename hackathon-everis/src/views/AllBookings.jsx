@@ -24,11 +24,11 @@ const AllBookings = () => {
 
   return (
     <React.Fragment>
-      <body className="cuerpo">
+      <div className="cuerpo">
         <div className="reservas">
           <h1 className="misReservas">Todas las reservas:</h1>
           <table className="tabla" border="1px">
-            <tr>
+            <tr >
               <th>Fecha</th>
               <th>Colaborador</th>
               <th>Horario</th>
@@ -36,7 +36,7 @@ const AllBookings = () => {
               <th>Area</th>
             </tr>
             {bookings.map((item) => (
-              <tr>
+              <tr key = {item.id}>
                 <td> {item.date}</td>
                 <td>{item.userName}</td>
                 <td>{item.timeblock}</td>
@@ -46,7 +46,7 @@ const AllBookings = () => {
             ))}
           </table>
         </div>
-      </body>
+      </div>
     </React.Fragment>
   );
 };
